@@ -3,5 +3,8 @@
 require_once 'controllers/usuario.php';
 
 $controlador = new UsuarioController();
-$controlador->index();
-$controlador->crear();
+
+if(isset($_GET['action'])){
+    $action = $_GET['action'];
+    $controlador->$action();
+}
